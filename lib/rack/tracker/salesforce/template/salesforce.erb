@@ -1,6 +1,6 @@
 <% events.each do |event| %>
   <% if event.convert? %>
-    <%= image_tag("http://click.exacttarget.com/conversion.aspx?xml=#{event.tags}", :style => "display: none") %>
+    <%= image_tag("https://click.exacttarget.com/conversion.aspx?xml=#{event.tags}", :style => "display: none") %>
     <%= event.clear %>
   <% end %>
 <% end %>
