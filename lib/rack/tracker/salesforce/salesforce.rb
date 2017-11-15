@@ -2,6 +2,10 @@ class Salesforce < Rack::Tracker::Handler
 
   self.position = :body
 
+  def domain
+    options[:domain]
+  end
+
   class Track < OpenStruct
 
     def tracker
@@ -9,9 +13,11 @@ class Salesforce < Rack::Tracker::Handler
     end
 
     def convert?
-      tracker.any?.tap do |value|
-        cookies.delete(:sfmc, :domain => options[:domain]) if value
-      end
+      tracker.any?
+    end
+
+    def delete(domain)
+      cookies.delete(:sfmc, :domain => domain)
     end
 
     def tags
