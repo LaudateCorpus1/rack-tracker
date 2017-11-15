@@ -32,7 +32,7 @@ class Salesforce < Rack::Tracker::Handler
           <link_alias>Completed</link_alias>
           <display_order>2</display_order>
           <data_set>
-            <data amt='1.0' unit='LOA#{level}' accumulate='true'/>
+            <data amt='1.0' unit='Visitors' accumulate='true'/>
           </data_set>
         </system>
       XML
