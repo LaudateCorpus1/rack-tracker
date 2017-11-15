@@ -5,15 +5,13 @@ class Salesforce < Rack::Tracker::Handler
   class Track < OpenStruct
 
     def tracker
-      JSON.parse(cookies.fetch(:sfmc, "{}"))
+      @tracker ||= JSON.parse(cookies.fetch(:sfmc, "{}"))
     end
 
     def convert?
-      tracker.any?
-    end
-
-    def clear
-      cookies.delete(:sfmc)
+      tracker.any?.tap do |value|
+        cookies.delete(:sfmc, :domain => options[:domain]) if value
+      end
     end
 
     def tags
@@ -31,9 +29,7 @@ class Salesforce < Rack::Tracker::Handler
           <conversion_link_id>8675309</conversion_link_id>
           <link_alias>Completed</link_alias>
           <display_order>2</display_order>
-          <data_set>
-            <data amt='1.0' unit='Visitors' accumulate='true'/>
-          </data_set>
+          <data_set></data_set>
         </system>
       XML
 

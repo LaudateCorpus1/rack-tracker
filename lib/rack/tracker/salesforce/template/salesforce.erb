@@ -1,10 +1,6 @@
 <% events.each do |event| %>
-  <!-- <%= events.size %> -->
-  <!-- <%= events.first.convert? %> -->
-  <!-- <%= events.first.cookies.inspect %> -->
   <% if event.convert? %>
-    <img src="https://click.exacttarget.com/conversion.aspx?xml=#{event.tags}" style="display: none;" />
-    <%= event.clear %>
+    <img src="https://click.exacttarget.com/conversion.aspx?xml=<%= event.tags %>" style="display: none;" />
   <% end %>
 <% end %>
 
