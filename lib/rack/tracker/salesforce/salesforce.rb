@@ -32,7 +32,7 @@ class Salesforce < Rack::Tracker::Handler
           <list>#{tracker["l"]}</list>
           <original_link_id>#{tracker["u"]}</original_link_id>
           <BatchID>#{tracker["jb"]}</BatchID>
-          <conversion_link_id>8675309</conversion_link_id>
+          <conversion_link_id>#{tracker["j"]}</conversion_link_id>
           <link_alias>Completed</link_alias>
           <display_order>2</display_order>
           <data_set></data_set>
